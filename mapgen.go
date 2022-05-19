@@ -77,8 +77,8 @@ func (m *Map) surroundingCount(x, y int) int {
 
 // Generates the map into inner array
 func (m *Map) Generate() {
-	m.generateArray()
 	rand.Seed(m.Seed)
+	m.generateArray()
 	for i := 0; i < m.Smooth; i++ {
 		m.smooth()
 	}
