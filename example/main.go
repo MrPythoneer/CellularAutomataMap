@@ -6,14 +6,16 @@ import (
 	"image/png"
 	"joshua/green/mapgen"
 	"os"
+	"time"
 )
 
 func main() {
-	width, height := 512, 512
+	width, height := 64, 64
 
 	gen := mapgen.NewMap(width, height)
 	gen.Ratio = 130
 	gen.Smooth = 10
+	gen.Seed = time.Now().UTC().UnixNano()
 	gen.Generate()
 
 	img := image.NewGray16(image.Rect(0, 0, width, height))
